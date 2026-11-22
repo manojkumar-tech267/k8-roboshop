@@ -1,0 +1,45 @@
+apiVersion: apps/v1 
+kind: Deployment
+metadata:
+  name: mongodb
+  namespace: roboshop
+  labels:
+    project: roboshop 
+    tier: database
+    component: mongodb
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      project: roboshop 
+      tier: database
+      component: mongodb
+  template:
+    metadata:
+      labels:
+        project: roboshop 
+        tier: database
+        component: mongodb
+    spec:
+      containers:
+      - name: mongodb
+        image: joindevops/mongodb:1.0.0
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mongodb
+  namespace: roboshop
+  labels:
+    project: roboshop 
+    tier: database
+    component: mongodb
+spec:
+  selector:
+    project: roboshop 
+    tier: database
+    component: mongodb
+  ports:
+  - protocol: TCP
+    port: 27017  # service port 
+    targetPort: 27017 # container port
