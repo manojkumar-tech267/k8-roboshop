@@ -24,6 +24,7 @@ spec:
       containers:
       - name: redis
         image: redis:7.0
+        imagePullPolicy: Always
 ---
 apiVersion: v1
 kind: Service

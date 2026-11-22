@@ -24,6 +24,7 @@ spec:
       containers:
       - name: mongodb
         image: joindevops/mongodb:1.0.0
+        imagePullPolicy: Always
 ---
 apiVersion: v1
 kind: Service

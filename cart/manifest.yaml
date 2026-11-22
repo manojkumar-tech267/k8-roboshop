@@ -35,6 +35,7 @@ spec:
       containers:
       - name: cart
         image: joindevops/cart:1.4.0
+        imgePullPolicy: Always
         resources:
           requests:
             cpu: "100m"
