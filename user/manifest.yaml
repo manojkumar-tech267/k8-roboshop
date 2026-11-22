@@ -59,6 +59,9 @@ spec:
             port: 8080
           failureThreshold: 2
           periodSeconds: 10
+        envFrom:
+        - configMapRef: 
+            name: user
 ---
 apiVersion: v1
 kind: Service
