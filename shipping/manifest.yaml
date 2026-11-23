@@ -34,12 +34,12 @@ spec:
         image: joindevops/shipping:1.0.0
         imagePullPolicy: Always
         resources:
-        requests:
-          cpu: "100m"
-          memory: "128Mi"
-        limits:
-          cpu: "100m"
-          memory: "128Mi"
+          requests:
+            cpu: "100m"
+            memory: "128Mi"
+          limits:
+            cpu: "100m"
+            memory: "128Mi"
         readinessProbe:
           tcpSocket:
             port: 8080
