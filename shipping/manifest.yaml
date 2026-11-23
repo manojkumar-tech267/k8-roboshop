@@ -33,34 +33,34 @@ spec:
       - name: shipping
         image: joindevops/shipping:1.0.0
         imagePullPolicy: Always
-      resources:
+        resources:
         requests:
           cpu: "100m"
           memory: "128Mi"
         limits:
           cpu: "100m"
           memory: "128Mi"
-      readinessProbe:
-        tcpSocket:
-          port: 8080
-        failureThreshold: 2
-        periodSeconds: 10
-        initialDelaySeconds: 15
-      startupProbe:
-        httpGet:
-          path: /health 
-          port: 8080
-        failureThreshold: 20
-        periodSeconds: 10
-      livenessProbe:
-        httpGet:
-          path: /health
-          port: 8080
-        failureThreshold: 2
-        periodSeconds: 10
-      envFrom:
-        - configMapRef: 
-            name: shipping
+        readinessProbe:
+          tcpSocket:
+            port: 8080
+          failureThreshold: 2
+          periodSeconds: 10
+          initialDelaySeconds: 15
+        startupProbe:
+          httpGet:
+            path: /health 
+            port: 8080
+          failureThreshold: 20
+          periodSeconds: 10
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 8080
+          failureThreshold: 2
+          periodSeconds: 10
+        envFrom:
+          - configMapRef: 
+              name: shipping  
 ---
 apiVersion: v1
 kind: Service
